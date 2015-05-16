@@ -15,8 +15,14 @@
             <scope>test</scope>
         </dependency>
 
-    
 
+    
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>2.2.8</version>
+        </dependency>
+<!--
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
@@ -27,21 +33,22 @@
             <artifactId>jsf-impl</artifactId>
             <version>2.2.2</version>
         </dependency>        
+-->
 
-        <!-- This import permit to import all the graphical themes for PrimeFaces. Only for development -->
+        <!-- This import permit to import all the graphical themes for PrimeFaces. Only for development 
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>5.0</version>
-        </dependency>
+        </dependency> -->
         <!-- If you wants to apply a Theme for PrimeFaces you need this dependency.
-        You need also to define a specific repository to add this. -->
+        You need also to define a specific repository to add this. 
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
             <artifactId>all-themes</artifactId>  
             <version>1.0.10</version>  
         </dependency>  
-
+-->
            
     </dependencies>
     <build>
@@ -49,11 +56,19 @@
     </build>
     
     <repositories>
+        
         <repository>
             <id>prime-repo</id>
             <name>PrimeFaces Maven Repository</name>
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
+        </repository> 
+        
+        <!-- Repository for the Oracle Mojarra JSF implementation -->
+        <repository>
+            <id>jvnet-nexus-snapshots</id>
+            <name>jvnet-nexus-snapshots</name>
+            <url>https://maven.java.net/content/repositories/snapshots/</url>
         </repository>
     </repositories>
     

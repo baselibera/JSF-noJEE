@@ -15,6 +15,7 @@
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
 
+    <!-- debugging information is automatically generated, if not setted state is 'Production' -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
