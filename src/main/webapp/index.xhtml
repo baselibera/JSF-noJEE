@@ -1,58 +1,37 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
     <h:head>
         <h:outputStylesheet library="css" name="default.css"/>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         
-        Hello from Facelets.<br />
-        Here goes template code.
-        <div>#{someExampleBeans.hello}</div>
-        
-        
+        <h2>Hello from Facelets.</h2>
+        <br />
         <p>
             <div>
                 This is an example of how to access some Managed Bean attrbute with EL
                 <ul>
+                    <li>Hello:&nbsp; #{someExampleBeans.hello}</li>
                     <li>#{someExampleBeans.myName}</li>
                     <li>#{someExampleBeans.numberExample}</li>
                 </ul>
             </div>
         </p>
-        <hr />
+        <hr></hr>
         <p>
-            <h:form>
-                <h:outputLabel value="Type a number from 10 to #{someExampleBeans.numberExample}" /><br />
-                <!-- input is automatically setted to the 'inputValue' attribute of Managed Bean-->
-                <h:inputText
-                    id="inputForm"
-                    title="Type a number from 10 to #{someExampleBeans.numberExample}:"
-                    value="#{someExampleBeans.inputValue}">
-                    <f:validateLongRange
-                        minimum="10"
-                        maximum="#{someExampleBeans.numberExample}"/>
-                </h:inputText>
-                
-                <!-- This submit button define an action to redirect to, 
-                    default goes to response.xhtml where the form field value 
-                    can be read from getter -->
-                <h:commandButton id="submit" value="Submit"
-                                 action="response"/>
-            </h:form>
-            </p>
+            <div>
+                This are links to others examples pages;
+                <ul>
+                    <li><h:link value="Form example" outcome="examples/formExample"/></li>
+                </ul>
+            </div>
+        </p>
 
         
-        <h:message showSummary="true" showDetail="false"
-                       style="color: #d20005;
-                       font-family: 'New Century Schoolbook', serif;
-                       font-style: oblique;
-                       text-decoration: overline"
-                       id="errors1"
-                       for="inputForm"/>
         <hr />
             
         

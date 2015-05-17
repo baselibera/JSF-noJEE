@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2>Form example Page:</h2>
+        <hr/>
+        <p>
+            <h:form>
+                <h:outputLabel value="Type a number from 10 to #{someExampleBeans.numberExample}" /><br />
+                <!-- input is automatically setted to the 'inputValue' attribute of Managed Bean-->
+                <h:inputText
+                    id="inputForm"
+                    title="Type a number from 10 to #{someExampleBeans.numberExample}:"
+                    value="#{someExampleBeans.inputValue}">
+                    <f:validateLongRange
+                        minimum="10"
+                        maximum="#{someExampleBeans.numberExample}"/>
+                </h:inputText>
+                <br/>
+                <!-- This submit button define an action to redirect to, 
+                    default goes to response.xhtml where the form field value 
+                    can be read from getter -->
+                <h:commandButton id="submit" value="Submit"
+                                 action="formResponse"/>
+            </h:form>
+        </p>
+
+
+        <h:message showSummary="true" showDetail="false"
+                   style="color: #d20005;
+                   font-family: 'New Century Schoolbook', serif;
+                   font-style: oblique;
+                   text-decoration: overline"
+                   id="errors1"
+                   for="inputForm"/>
+    </h:body>
+</html>
+
