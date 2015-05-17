@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>JSF Form Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div>Here some link example, there are three kind of links:</div>
+        <ul>
+            <li><strong>&lt;h:link /&gt;</strong></li>
+            <li><strong>&lt;h:commandLink /&gt;</strong></li>
+            <li><strong>&lt;h:outputLink /&gt;</strong></li>
+        </ul>
+        <br/>
+        <h:link value="Return to Home" outcome="/index"/>
+        <hr/>
+        <h2>&lt;h:link /&gt;</h2>
+        <p>
+            <h:outputLabel value="Direct link rendered as simple anchor." /><br/>
+            <h:link value="Link to the homepage" outcome="/index" />
+        </p>
+        <p>
+            <h:outputLabel value="Link with a query string parameter." /><br/>
+            <h:link value="Links here with a parameter=paramValue " outcome="links" >
+                <f:param name="parameter" value="paramValue" />
+            </h:link>
+            <br/>
+            <h:outputLabel value="Parameter value for the current request is: " />
+            <h:outputText style="font-style: oblique;" value="#{param['parameter']}" /> 
+        </p>
+        <h2>&lt;h:commandLink /&gt;</h2>
+        <p>
+            <h:outputLabel value="Command Link. Need to be included in a 'h:form' tag and is capable to invoke a Managed Beans method" />
+            <h:form>
+                <h:commandLink action="#{linksBean.invokeFromButton()}" value="Test" />
+            </h:form>
+            <br/>
+            <h:outputLabel value="Command Link with parameter call. In this case we need to declare a @ManagedProperty to receive the 'f:param' paramter into the method" />
+            <h:form>
+                <h:commandLink action="#{linksBean.invokeFromButtonWithParam}" value="Action to homepage with a parameter ">
+                    <f:param name="parameter" value="jolab" />
+                </h:commandLink>
+            </h:form>
+            
+            <br/>
+            <h:form>
+            <h:outputLabel value="Another link solution based on Property Action Listener" /><br/>
+            <h:commandLink action="#{linksBean.invokeWithListener}" value="Parameter test with Property listener.">
+                <f:setPropertyActionListener target="#{linksBean.parameterValue}" value="parameterValue" />
+            </h:commandLink>                           
+            </h:form>
+        </p>
+    </h:body>
+</html>

@@ -36,9 +36,6 @@ public class IndexManagedBean {
     
     public String getHello(){
         String name = "Jolab";
-        if(name==null || name.equals("")){
-            name = new String();
-        }
         return "Hello " + name + " " + new java.util.Date();
     }
     
