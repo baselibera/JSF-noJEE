@@ -53,10 +53,17 @@ and open the template in the editor.
             
             <br/>
             <h:form>
-            <h:outputLabel value="Another link solution based on Property Action Listener" /><br/>
-            <h:commandLink action="#{linksBean.invokeWithListener}" value="Parameter test with Property listener.">
-                <f:setPropertyActionListener target="#{linksBean.parameterValue}" value="parameterValue" />
-            </h:commandLink>                           
+                <h:outputLabel value="Another link solution based on Property Action Listener" /><br/>
+                <h:commandLink action="#{linksBean.invokeWithListener}" value="Parameter test with Property listener.">
+                    <f:setPropertyActionListener target="#{linksBean.parameterValue}" value="parameterValue" />
+                </h:commandLink>                           
+            </h:form>
+            <br />
+            
+            
+            <h:form>
+                <h:outputLabel value="Only for AS that support Servlet 3.0 / EL 2.2 this is the better solution." /><br/>
+                <h:commandLink action="#{linksBean.invokeOnly3('value')}" value="Directly pass the parameter to the method." />                       
             </h:form>
         </p>
     </h:body>

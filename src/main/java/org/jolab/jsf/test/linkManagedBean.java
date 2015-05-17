@@ -46,4 +46,11 @@ public class linkManagedBean {
         return s;        
     }
     
+    public String invokeOnly3(String str){
+        String s = "/index";
+        System.out.println("Parameter: " + str);
+        return s;        
+        
+    }
+    
 }
